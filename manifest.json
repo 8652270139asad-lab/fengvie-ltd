@@ -1,0 +1,22 @@
+{
+  "name": "FENGVIE PRIVATE LIMITED",
+  "short_name": "FENGVIE",
+  "description": "FENGVIE Core Portal & Institutional Access Gateway",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#00D2FF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/fengvie-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/fengvie-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
