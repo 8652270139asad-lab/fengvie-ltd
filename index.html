@@ -646,6 +646,44 @@
                 }, 1200);
             });
 
+              // ==========================================
+        // FIREBASE CONFIGURATION (INTEGRATED WITH NEW KEYS)
+        // ==========================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyAMsmag5v3MAMBFU9qX6ljL7f2TUeEqkag",
+            authDomain: "fengvie-portal.firebaseapp.com",
+            projectId: "fengvie-portal",
+            storageBucket: "fengvie-portal.firebasestorage.app",
+            messagingSenderId: "907810977104",
+            appId: "1:907810977104:web:cfe453b65e6808a6f02855",
+            measurementId: "G-EMW5834BJ1"
+        };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // ==========================================
+        // GOOGLE SIGN-IN FUNCTIONS
+        // ==========================================
+        function loginWithGoogle() {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log("Google Login Successful:", user);
+                    
+                    // Dynamic Header Title customization based on real name
+                    document.getElementById('portal-title').innerText = `WELCOME, ${user.displayName.toUpperCase()}`;
+                    
+                    handleLoginSuccessState();
+                })
+                .catch((error) => {
+                    console.error("Auth Error:", error.message);
+                    alert("Authentication Failed: " + error.message);
+                });
+        }
+
             // Service Worker Registration Loop for Progressive Web App (PWA)
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('./sw.js')
